@@ -5,7 +5,7 @@ screen = turtle.Screen()
 screen.title('Turtle Practice')
 
 t = turtle.Turtle()
-t.speed(7)
+t.speed(1)
 t.color('blue')
 
 def square(length):
@@ -19,8 +19,8 @@ def polygon(sides, length):
         t.forward(length)
         t.left(angle)
 
-polygon(10, 20)
-polygon(180, 2)
+#polygon(10, 20)
+#polygon(180, 2)
 
 def circle(radius):
     circumference = 2 * 3.14 * radius
@@ -52,20 +52,19 @@ triangle (60)
 
 def trianglepie(sides, base):
     base_angle = 360 / sides / 2
+    print(f"base_angle: {base_angle}")
     ver_angle = 180 - (base_angle * 2)
+    print(f"ver_angle: {ver_angle}")
     ver_angle_rad = math.radians(ver_angle)
     cos_ver = math.cos(ver_angle_rad)
     leg_length = base / (2 * cos_ver)
     for i in range(sides):
-        t.forward(base)
-        t.left(base_angle)
         t.forward(leg_length)
-        t.left(ver_angle)
-        t.forward(leg_length)
-        t.left(base_angle)
-        t.penup()
+        t.left(180 - base_angle)
         t.forward(base)
-        t.pendown()
+        t.left(180 - base_angle)
+        t.forward(leg_length)
+        t.left(90)
 
 trianglepie(6, 50)
 turtle.done()

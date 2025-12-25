@@ -85,3 +85,39 @@ while True:
         break
     else:
         print(f"I'll add {topping.title()} to your pizza.") 
+
+sandwich_orders = ['turkey', 'veggie', 'club', 'pastrami', 'ham', 'pastrami', 'roast beef', 'pastrami']
+finished_sandwiches = []   
+while sandwich_orders:
+    current_sandwich = sandwich_orders.pop()
+    print(f"Making your {current_sandwich} sandwich.")
+    finished_sandwiches.append(current_sandwich)
+print("All sandwiches are made:")
+for sandwich in finished_sandwiches:
+    print(f"- {sandwich.title()}")
+
+print("Sorry, we have run out of pastrami.")
+while 'pastrami' in sandwich_orders:
+    sandwich_orders.remove('pastrami')
+while sandwich_orders:
+    current_sandwich = sandwich_orders.pop()
+    print(f"Making your {current_sandwich} sandwich.")
+    finished_sandwiches.append(current_sandwich)
+print("All sandwiches are made:")
+for sandwich in finished_sandwiches:
+    print(f"- {sandwich.title()}")
+
+responses = {}
+polling_active = True
+while polling_active:
+    name = input("\nWhat is your name? ")
+    response = input("If you could visit one place in the world, where would you go? ")
+
+    responses[name] = response
+
+    repeat = input("Would you like to let another person respond? (yes/no) ")
+    if repeat.lower() == 'no':
+        polling_active = False
+print("\n--- Poll Results ---")
+for name, response in responses.items():
+    print(f"{name} would like to visit {response}.")
